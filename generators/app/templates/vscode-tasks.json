@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "command": "gulp",
+  "isShellCommand": true,
+  "args": [
+    "--no-color"
+  ],
+  "tasks": [
+    {
+      "taskName": "serve",
+      "args": [],
+      "isBuildCommand": true,
+      "showOutput": "always",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "taskName": "spcaf",
+      "args": [
+        "--vscode"
+      ],
+      "showOutput": "silent",
+      "problemMatcher": {
+        "fileLocation": "absolute",
+        "pattern": [{
+          "regexp": "^([^\\s]+)\\s(.*)$",
+          "severity": 1,
+          "message": 2
+        },
+        {
+          "regexp": "file\\:\\s(.*)\\sline\\:\\s([\\d]+)",
+          "file": 1,
+          "line": 2
+        }]
+      }
+    }
+  ]
+}

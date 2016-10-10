@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<SPCAFSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SharePoint Framework - All Rules" Description="Use this ruleset to run analysis on SharePoint Framework projects only.">
+  <Properties>
+    <Property Key="ApprovedScriptLocations" Value="https://cdn.rencore.com/" />
+    <Property Key="ApprovedSourceLocations" Value="https://cdn.rencore.com/" />
+    <Property Key="IgnoredFiles" Value="node_modules;gulpfile.js" />
+  </Properties>
+  <Analyzers>
+    <Analyzer Name="SPCAF.Dependencies" Disabled="true" />
+    <Analyzer Name="SPCAF.Inventory" Disabled="true" />
+    <Analyzer Name="SPCAF.Rules" Disabled="true" />
+    <Analyzer Name="SPCAF.Metrics" Disabled="true" />
+    <Analyzer Name="SPCAF.Rules.Apps" Disabled="true" />
+    <Analyzer Name="SPCAF.Rules.JavaScript" Disabled="true" />
+    <Analyzer Name="SPCAF.Rules.ManagedCSOM" Disabled="true" />
+    <Analyzer Name="SPCAF.Rules.PowerShell" Disabled="true" />
+    <Analyzer Name="SPCAF.Rules.MigrationAssessment" Disabled="true" />
+    <Analyzer Name="SPCAF.Integration.CSSLint" Disabled="true" />
+    <Analyzer Name="SPCAF.Integration.JSHint" Disabled="true" />
+    <Analyzer Name="SPCAF.Integration.FxCop" Disabled="true" />
+    <Analyzer Name="SPCAF.Integration.FxCopMetrics" Disabled="true" />
+    <Analyzer Name="SPCAF.Integration.SPDisposeCheck" Disabled="true" />
+    <Analyzer Name="SPCAF.Integration.CATNET" Disabled="true" />
+  </Analyzers>
+</SPCAFSettings>
