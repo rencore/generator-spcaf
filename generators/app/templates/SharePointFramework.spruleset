@@ -6,20 +6,21 @@
     <Property Key="IgnoredFiles" Value="node_modules;gulpfile.js" />
   </Properties>
   <Analyzers>
-    <Analyzer Name="SPCAF.Dependencies" Disabled="true" />
-    <Analyzer Name="SPCAF.Inventory" Disabled="true" />
-    <Analyzer Name="SPCAF.Rules" Disabled="true" />
-    <Analyzer Name="SPCAF.Metrics" Disabled="true" />
-    <Analyzer Name="SPCAF.Rules.Apps" Disabled="true" />
-    <Analyzer Name="SPCAF.Rules.JavaScript" Disabled="true" />
-    <Analyzer Name="SPCAF.Rules.ManagedCSOM" Disabled="true" />
-    <Analyzer Name="SPCAF.Rules.PowerShell" Disabled="true" />
-    <Analyzer Name="SPCAF.Rules.MigrationAssessment" Disabled="true" />
-    <Analyzer Name="SPCAF.Integration.CSSLint" Disabled="true" />
-    <Analyzer Name="SPCAF.Integration.JSHint" Disabled="true" />
-    <Analyzer Name="SPCAF.Integration.FxCop" Disabled="true" />
-    <Analyzer Name="SPCAF.Integration.FxCopMetrics" Disabled="true" />
-    <Analyzer Name="SPCAF.Integration.SPDisposeCheck" Disabled="true" />
-    <Analyzer Name="SPCAF.Integration.CATNET" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Assemblies.Rules.CSOM" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Integration.CATNET" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Integration.CSSLint" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Integration.FxCop" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Integration.FxCopMetrics" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Integration.JSHint" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.JavaScript.Rules" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.Powershell.Rules" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.SPAddins.Dependencies" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.SPAddins.Inventory" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.SPAddins.Metrics" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.SPAddins.Rules" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.WSP.Dependencies" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.WSP.Inventory" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.WSP.Metrics" Disabled="true" />
+    <Analyzer Name="Rencore.Analyzers.WSP.Rules" Disabled="true" />
   </Analyzers>
 </SPCAFSettings>

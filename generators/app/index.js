@@ -25,7 +25,7 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'spcafPath',
       message: 'Where do you have SPCAF installed?',
-      default: 'C:\\Program Files (x86)\\SPCAF'
+      default: 'C:\\Program Files (x86)\\Rencore\\SPCAF'
     }];
 
     return this.prompt(prompts).then(function (props) {
