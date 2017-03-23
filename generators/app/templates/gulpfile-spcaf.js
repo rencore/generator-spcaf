@@ -1,4 +1,11 @@
-gulp.task('spcaf', ['bundle'], function (cb) {
+'use strict';
+
+const gulp = require('gulp');
+const spawn = require('child_process').spawn;
+const chalk = require('chalk');
+const argv = require('yargs').argv;
+
+function spcaf(cb) {
   var criticalErrors = 0;
   var criticalWarnings = 0;
   var errors = 0;
@@ -108,4 +115,7 @@ gulp.task('spcaf', ['bundle'], function (cb) {
         return inVsCode ? 'warning' : chalk.yellow('[!]');
     };
   }
-});
+}
+
+gulp.task('spcaf', ['bundle'], spcaf);
+gulp.task('spcaf-nobuild', spcaf);

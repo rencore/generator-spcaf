@@ -42,6 +42,9 @@ module.exports = yeoman.Base.extend({
       if (this.fs.exists(this.destinationPath('gulpfile.js'))) {
         this.fs.copy(this.destinationPath('gulpfile.js'), this.destinationPath('gulpfile.js.bak_' + now));
       }
+      if (this.fs.exists(this.destinationPath('gulpfile-spcaf.js'))) {
+        this.fs.copy(this.destinationPath('gulpfile-spcaf.js'), this.destinationPath('gulpfile-spcaf.js.bak_' + now));
+      }
       if (this.fs.exists(this.destinationPath('.vscode/tasks.json'))) {
         this.fs.copy(this.destinationPath('.vscode/tasks.json'), this.destinationPath('.vscode/tasks.json.bak_' + now));
       }
@@ -84,7 +87,7 @@ module.exports = yeoman.Base.extend({
       this.log(chalk.yellow('Installing the SPCAF Gulp task...'));
 
       var gulpFile = this.fs.read(this.destinationPath('gulpfile.js'));
-      if (gulpFile.indexOf('gulp.task(\'spcaf\',') > -1) {
+      if (gulpFile.indexOf('require(\'./gulpfile-spcaf\');') > -1) {
         this.log(chalk.yellow('SPCAF Gulp task already present. No need to install.'));
         return;
       }
@@ -95,17 +98,18 @@ module.exports = yeoman.Base.extend({
       }
 
       var pos = gulpFile.indexOf(breakpoint) + breakpoint.length;
-      gulpFile = gulpFile.substr(0, pos) + "const spawn = require('child_process').spawn;\r\n\
-const chalk = require('chalk');\r\n\
-const argv = require('yargs').argv;\r\n" + gulpFile.substr(pos);
-
-      var spcafGulpTask = this.fs.read(this.templatePath('gulpfile-spcaf-task.js'));
-      gulpFile += '\r\n' + spcafGulpTask;
-
-      gulpFile = gulpFile.replace('<%= spcafpath %>', this.props.spcafPath.replace(/\\/g, '\\\\'));
+      gulpFile = gulpFile.substr(0, pos) + "require('./gulpfile-spcaf');\r\n" + gulpFile.substr(pos);
 
       this.log(chalk.yellow('Writing updated gulpfile.js'));
       this.fs.write(this.destinationPath('gulpfile.js'), gulpFile);
+    },
+
+    upsertGulpfileSPCAFJs: function () {
+      this.log(chalk.yellow('Installing the SPCAF Gulp task definition...'));
+
+      var spcafGulpTask = this.fs.read(this.templatePath('gulpfile-spcaf.js'))
+        .replace('<%= spcafpath %>', this.props.spcafPath.replace(/\\/g, '\\\\'));
+      this.fs.write(this.destinationPath('gulpfile-spcaf.js'), spcafGulpTask);
     },
 
     upsertTasksJson: function () {

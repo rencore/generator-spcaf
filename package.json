@@ -2,11 +2,11 @@
   "name": "generator-spcaf",
   "version": "1.1.0",
   "description": "Add support for running SPCAF analysis to existing SharePoint Framework projects",
-  "homepage": "http://spcaf.com",
+  "homepage": "https://spcaf.com",
   "author": {
     "name": "Rencore",
     "email": "services@rencore.com",
-    "url": "http://spcaf.com"
+    "url": "https://spcaf.com"
   },
   "files": [
     "generators"
