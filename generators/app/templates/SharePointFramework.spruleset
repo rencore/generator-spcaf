@@ -3,7 +3,7 @@
   <Properties>
     <Property Key="ApprovedScriptLocations" Value="https://cdn.rencore.com/" />
     <Property Key="ApprovedSourceLocations" Value="https://cdn.rencore.com/" />
-    <Property Key="IgnoredFiles" Value="node_modules;gulpfile.js" />
+    <Property Key="IgnoredFiles" Value="/node_modules/;gulpfile.js" />
   </Properties>
   <Analyzers>
     <Analyzer Name="Rencore.Analyzers.Assemblies.Rules.CSOM" Disabled="true" />
