@@ -39,40 +39,48 @@ function spcaf(cb) {
         continue;
       }
 
-      var obj = JSON.parse(logLines[i]);
-
-      if (obj.Progress && obj.Progress > progress) {
-        progress = obj.Progress;
-        console.log(chalk.blue(`${progress}%`) + ` ${obj.Message}`);
-      }
-
-      if (obj.Kind !== 'Rule') {
-        continue;
-      }
-
-      if (obj.Type === 'Notification') {
-        var errorSeverity = null;
-        switch (obj.Severity) {
-          case 'CriticalError':
-            errorSeverity = getSeverityIcon(obj.Severity);
-            criticalErrors++;
-            break;
-          case 'Error':
-            errorSeverity = getSeverityIcon(obj.Severity);
-            errors++;
-            break;
-          case 'CriticalWarning':
-            errorSeverity = getSeverityIcon(obj.Severity);
-            criticalWarnings++;
-            break;
-          case 'Warning':
-            errorSeverity = getSeverityIcon(obj.Severity);
-            warnings++;
-            break;
+      // sometimes multiple JSON objects are stored in a single log
+      var logLinesInternal = logLines[i].split('\r\n');
+      for (var j = 0; j < logLinesInternal.length; j++) {
+        if (logLinesInternal[j].trim().length === 0) {
+          continue;
         }
 
-        console.log(`${errorSeverity} ${obj.Message}`);
-        console.log(chalk.gray(`    file: ${obj.WSPRelativeLocation} line: ${obj.LineNumber}`));
+        var obj = JSON.parse(logLinesInternal[j]);
+
+        if (obj.Progress && obj.Progress > progress) {
+          progress = obj.Progress;
+          console.log(chalk.blue(`${progress}%`) + ` ${obj.Message}`);
+        }
+
+        if (obj.Kind !== 'Rule') {
+          continue;
+        }
+
+        if (obj.Type === 'Notification') {
+          var errorSeverity = null;
+          switch (obj.Severity) {
+            case 'CriticalError':
+              errorSeverity = getSeverityIcon(obj.Severity);
+              criticalErrors++;
+              break;
+            case 'Error':
+              errorSeverity = getSeverityIcon(obj.Severity);
+              errors++;
+              break;
+            case 'CriticalWarning':
+              errorSeverity = getSeverityIcon(obj.Severity);
+              criticalWarnings++;
+              break;
+            case 'Warning':
+              errorSeverity = getSeverityIcon(obj.Severity);
+              warnings++;
+              break;
+          }
+
+          console.log(`${errorSeverity} ${obj.Message}`);
+          console.log(chalk.gray(`    file: ${obj.WSPRelativeLocation} line: ${obj.LineNumber}`));
+        }
       }
     }
   });
